@@ -11,7 +11,7 @@ export function Work() {
             Some of my work
           </p>
           <h2 className="max-w-2xl font-display text-4xl leading-tight font-semibold tracking-tight text-balance md:text-5xl">
-            From hand-made WordPress sites to AI generated high end design.
+            From hand-made WordPress sites to AI generated polished design.
           </h2>
         </Reveal>
 

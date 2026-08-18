@@ -60,20 +60,6 @@ export function About() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal className="mt-6 rounded-2xl border border-forest/15 bg-forest-soft p-8 md:p-10">
-          <p className="text-sm font-medium tracking-[0.2em] text-forest uppercase">
-            What I&rsquo;m building
-          </p>
-          <h3 className="mt-4 font-display text-2xl font-medium tracking-tight md:text-3xl">
-            lefolio.md
-          </h3>
-          <p className="mt-3 max-w-2xl text-lg leading-relaxed text-ink-soft text-pretty">
-            A static site generator for DIY makers that lets you edit your content in plain
-            markdown &mdash; my ongoing attempt at a pleasant editing experience that doesn&rsquo;t
-            cost you the design.
-          </p>
-        </Reveal>
       </div>
     </section>
   )
