@@ -11,7 +11,7 @@ export function Work() {
             Some of my work
           </p>
           <h2 className="max-w-2xl font-display text-4xl leading-tight font-semibold tracking-tight text-balance md:text-5xl">
-            From hand made WordPress sites to AI generated high end design.
+            From hand-made WordPress sites to AI generated high end design.
           </h2>
         </Reveal>
 
@@ -30,8 +30,8 @@ export function Work() {
                     alt={project.alt}
                     loading="lazy"
                     width={1200}
-                    height={900}
-                    className="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    height={800}
+                    className="aspect-3/2 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
 

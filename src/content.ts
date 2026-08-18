@@ -1,5 +1,8 @@
 export const EMAIL = 'o.rouiller@gmail.com'
 
+const publicAsset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+
 export const NAV_LINKS = [
   { label: 'How I work', href: '#how-i-work' },
   { label: 'Work', href: '#work' },
@@ -35,7 +38,7 @@ export const PROJECTS = [
     role: 'My first coaching page',
     href: 'https://www.re-connected.fr',
     display: 'www.re-connected.fr',
-    image: '/work-re-connected.webp',
+    image: publicAsset('work-re-connected.webp'),
     alt: 'Preview of the re-connected.fr coaching site: a calm, text-led page introducing somatic coaching sessions.',
   },
   {
@@ -43,7 +46,7 @@ export const PROJECTS = [
     role: 'The same practice, rebuilt with AI',
     href: 'https://reconnected-coral.vercel.app/',
     display: 'reconnected-coral.vercel.app',
-    image: '/work-reconnected-coral.webp',
+    image: publicAsset('work-reconnected-coral.webp'),
     alt: 'Preview of the reworked Reconnected site: a full-bleed misty forest hero with a centred headline and a booking button.',
   },
 ]
