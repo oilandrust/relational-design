@@ -11,6 +11,11 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+
+# TinaCMS
+tina/__generated__
+public/admin
 
 # Editor directories and files
 .vscode/*

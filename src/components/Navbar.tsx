@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { EMAIL, NAV_LINKS } from '../content'
+import { EMAIL, NAV_LINKS, SITE_NAME } from '../content'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -19,7 +19,7 @@ export function Navbar() {
     >
       <nav className="mx-auto flex max-w-5xl items-center justify-between gap-6 px-6 py-4">
         <a href="#top" className="font-display text-lg font-semibold tracking-tight">
-          Olivier Rouiller
+          {SITE_NAME}
         </a>
 
         <div className="hidden items-center gap-8 md:flex">

@@ -1,3 +1,31 @@
+# Relational Web Design
+
+Vite + React site for [Olivier Rouiller](https://oilandrust.github.io/relational-design/), with homepage copy edited in [TinaCMS](https://tina.io).
+
+## Local development
+
+```bash
+cp .env.example .env   # optional until you have Tina Cloud keys
+npm install
+npm run dev
+```
+
+- Site: http://localhost:5173/
+- CMS: http://localhost:5173/admin/index.html
+
+Edits in the admin are written to `content/pages/home.json`.
+
+## Production CMS (Tina Cloud)
+
+1. Create a Tina Cloud project for `oilandrust/relational-design`
+2. Set the Site URL to `https://oilandrust.github.io/relational-design`
+3. Add GitHub secrets `TINA_PUBLIC_CLIENT_ID` and `TINA_TOKEN`
+4. Put the same values in `.env` locally
+
+Production admin: https://oilandrust.github.io/relational-design/admin/index.html
+
+Saving in production commits to `main` and retriggers GitHub Pages.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.

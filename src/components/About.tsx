@@ -1,23 +1,12 @@
-import { Bot, FileText, Layers } from 'lucide-react'
+import { Bot, FileText, Layers, type LucideIcon } from 'lucide-react'
+import { ABOUT, type ToolIcon } from '../content'
 import { Reveal } from './Reveal'
 
-const TOOLS = [
-  {
-    icon: Bot,
-    name: 'AI-assisted design',
-    body: 'For moving fast through mock-ups until the look is right.',
-  },
-  {
-    icon: Layers,
-    name: 'WordPress and other CMSs',
-    body: 'When you need to edit everything yourself, in a familiar admin.',
-  },
-  {
-    icon: FileText,
-    name: 'Static site generators',
-    body: 'When the site should be fast, cheap to host, and simple to keep.',
-  },
-]
+const TOOL_ICONS: Record<ToolIcon, LucideIcon> = {
+  bot: Bot,
+  layers: Layers,
+  'file-text': FileText,
+}
 
 export function About() {
   return (
@@ -26,39 +15,35 @@ export function About() {
         <Reveal className="grid gap-12 md:grid-cols-[1fr_1.3fr] md:gap-16">
           <div>
             <p className="mb-4 text-sm font-medium tracking-[0.2em] text-clay uppercase">
-              About me
+              {ABOUT.eyebrow}
             </p>
             <h2 className="font-display text-4xl leading-tight font-semibold tracking-tight text-balance md:text-5xl">
-              A curious blend between Software Engineering and Relational Attunement.
+              {ABOUT.title}
             </h2>
           </div>
 
           <div className="space-y-5 text-lg leading-relaxed text-ink-soft text-pretty">
-            <p>
-              I was a software engineer for 10 years, working in video games and other tech-heavy
-              fields. In the past 10 years I have been interested in entrepreneurship, relationasl practices, coaching and
-              therapy. I trained in somatic therapy, practiced many forms of mindfulness and developed a keen ability for attunement. Along the way I kept exploring how
-              websites get built.
-            </p>
-            <p>
-              I'm happy to sit with you in the language of your practice, and
-              be your ally in working with technology.
-            </p>
+            {ABOUT.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </Reveal>
 
         <div className="mt-20 grid gap-6 sm:grid-cols-3">
-          {TOOLS.map((tool, i) => (
-            <Reveal
-              key={tool.name}
-              delay={i * 90}
-              className="rounded-2xl border border-line bg-card p-6"
-            >
-              <tool.icon className="h-6 w-6 text-clay" aria-hidden="true" />
-              <h3 className="mt-4 font-display text-lg font-medium tracking-tight">{tool.name}</h3>
-              <p className="mt-2 text-ink-soft">{tool.body}</p>
-            </Reveal>
-          ))}
+          {ABOUT.tools.map((tool, i) => {
+            const Icon = TOOL_ICONS[tool.icon as ToolIcon] ?? Bot
+            return (
+              <Reveal
+                key={tool.name}
+                delay={i * 90}
+                className="rounded-2xl border border-line bg-card p-6"
+              >
+                <Icon className="h-6 w-6 text-clay" aria-hidden="true" />
+                <h3 className="mt-4 font-display text-lg font-medium tracking-tight">{tool.name}</h3>
+                <p className="mt-2 text-ink-soft">{tool.body}</p>
+              </Reveal>
+            )
+          })}
         </div>
       </div>
     </section>

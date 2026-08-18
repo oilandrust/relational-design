@@ -1,4 +1,4 @@
-import { STEPS } from '../content'
+import { HOW_I_WORK } from '../content'
 import { Reveal } from './Reveal'
 
 export function HowIWork() {
@@ -7,15 +7,15 @@ export function HowIWork() {
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <p className="mb-4 text-sm font-medium tracking-[0.2em] text-clay uppercase">
-            How I work
+            {HOW_I_WORK.eyebrow}
           </p>
           <h2 className="max-w-2xl font-display text-4xl leading-tight font-semibold tracking-tight text-balance md:text-5xl">
-            How we iterate, while making sure we're building the right thing.
+            {HOW_I_WORK.title}
           </h2>
         </Reveal>
 
         <ol className="mt-16 space-y-px border-t border-line">
-          {STEPS.map((step, i) => (
+          {HOW_I_WORK.steps.map((step, i) => (
             <li key={step.title} className="border-b border-line">
               <Reveal
                 delay={i * 70}

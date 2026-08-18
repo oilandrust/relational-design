@@ -1,5 +1,5 @@
 import { ArrowDown } from 'lucide-react'
-import { EMAIL } from '../content'
+import { EMAIL, HERO } from '../content'
 
 export function Hero() {
   return (
@@ -15,16 +15,15 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-5xl">
         <p className="mb-6 text-sm font-medium tracking-[0.2em] text-clay uppercase">
-          Relational Web Design
+          {HERO.eyebrow}
         </p>
 
         <h1 className="max-w-4xl font-display text-5xl leading-[1.05] font-semibold tracking-tight text-balance sm:text-6xl md:text-7xl">
-          Let&rsquo;s build your website together
+          {HERO.title}
         </h1>
 
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft text-pretty md:text-xl">
-          I help people build their websites by carefully listening to their needs and picking
-          tools that get the job done.
+          {HERO.body}
         </p>
 
         <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -32,13 +31,13 @@ export function Hero() {
             href={`mailto:${EMAIL}`}
             className="rounded-full bg-clay px-7 py-3.5 font-medium text-paper transition-transform hover:scale-105"
           >
-            Start a conversation
+            {HERO.primaryCta}
           </a>
           <a
-            href="#how-i-work"
+            href={HERO.secondaryHref}
             className="group inline-flex items-center gap-2 rounded-full border border-line px-7 py-3.5 font-medium transition-colors hover:bg-card"
           >
-            See how I work
+            {HERO.secondaryCta}
             <ArrowDown
               className="h-4 w-4 transition-transform group-hover:translate-y-0.5"
               aria-hidden="true"

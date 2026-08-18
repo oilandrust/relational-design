@@ -1,5 +1,5 @@
 import { Mail } from 'lucide-react'
-import { EMAIL } from '../content'
+import { CONTACT, EMAIL } from '../content'
 import { Reveal } from './Reveal'
 
 export function Contact() {
@@ -14,14 +14,13 @@ export function Contact() {
 
           <div className="relative mx-auto max-w-2xl">
             <p className="mb-4 text-sm font-medium tracking-[0.2em] text-clay-soft uppercase">
-              Work with me
+              {CONTACT.eyebrow}
             </p>
             <h2 className="font-display text-3xl leading-snug font-semibold tracking-tight text-paper text-balance md:text-4xl">
-              I&rsquo;d love to learn more about you and what you want your site to do
+              {CONTACT.title}
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-paper/80 text-pretty">
-              I&rsquo;m looking for collaborations. Tell me about your vision for your website and
-              your business needs, and let&rsquo;s work out the right tools for you.
+              {CONTACT.body}
             </p>
 
             <a

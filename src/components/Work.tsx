@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
-import { PROJECTS } from '../content'
+import { WORK } from '../content'
 import { Reveal } from './Reveal'
 
 export function Work() {
@@ -8,15 +8,15 @@ export function Work() {
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <p className="mb-4 text-sm font-medium tracking-[0.2em] text-clay uppercase">
-            Some of my work
+            {WORK.eyebrow}
           </p>
           <h2 className="max-w-2xl font-display text-4xl leading-tight font-semibold tracking-tight text-balance md:text-5xl">
-            From hand-made WordPress sites to AI generated polished design.
+            {WORK.title}
           </h2>
         </Reveal>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2">
-          {PROJECTS.map((project, i) => (
+          {WORK.projects.map((project, i) => (
             <Reveal key={project.href} delay={i * 100}>
               <a
                 href={project.href}
