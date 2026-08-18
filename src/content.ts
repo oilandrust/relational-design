@@ -9,7 +9,7 @@ export const NAV_LINKS = [
 export const STEPS = [
   {
     title: 'Figure out why',
-    body: 'We start with why you need a website at all, and what you are trying to achieve right now. Everything after this depends on getting it right.',
+    body: 'We start by understanding with why you need a website, and what you are trying to achieve right now. That way we make sure your website is aligned with your business.',
   },
   {
     title: 'Find a style you like',
