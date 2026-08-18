@@ -2,9 +2,18 @@
   "siteName": "Olivier Rouiller",
   "email": "o.rouiller@gmail.com",
   "nav": [
-    { "label": "How I work", "href": "#how-i-work" },
-    { "label": "Work", "href": "#work" },
-    { "label": "About", "href": "#about" }
+    {
+      "label": "How I work",
+      "href": "#how-i-work"
+    },
+    {
+      "label": "Work",
+      "href": "#work"
+    },
+    {
+      "label": "About",
+      "href": "#about"
+    }
   ],
   "hero": {
     "eyebrow": "Relational Web Design",
@@ -71,25 +80,25 @@
     ],
     "tools": [
       {
-        "icon": "bot",
         "name": "AI-assisted design",
-        "body": "For moving fast through mock-ups until the look is right."
+        "body": "For moving fast through mock-ups until the look is right.",
+        "icon": "bot"
       },
       {
-        "icon": "layers",
         "name": "WordPress and other CMSs",
-        "body": "When you need to edit everything yourself, in a familiar admin."
+        "body": "When you need to edit everything yourself, in a familiar admin.",
+        "icon": "layers"
       },
       {
-        "icon": "file-text",
         "name": "Static site generators",
-        "body": "When the site should be fast, cheap to host, and simple to keep."
+        "body": "When the site should be fast, cheap to host, and simple to keep.",
+        "icon": "file-text"
       }
     ]
   },
   "contact": {
     "eyebrow": "Work with me",
-    "title": "I'd love to learn more about you and what you want your site to do",
+    "title": "I'd love to learn more about you and your projects!",
     "body": "I'm looking for collaborations. Tell me about your vision for your website and your business needs, and let's work out the right tools for you."
   }
 }
