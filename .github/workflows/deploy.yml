@@ -31,7 +31,16 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: |
+          if [ -z "$TINA_PUBLIC_CLIENT_ID" ] || [ "$TINA_PUBLIC_CLIENT_ID" = "local" ]; then
+            echo "TINA_PUBLIC_CLIENT_ID is missing. Add it as a *repository* Action secret (not an environment secret), then re-run this workflow."
+            exit 1
+          fi
+          if [ -z "$TINA_TOKEN" ] || [ "$TINA_TOKEN" = "local" ]; then
+            echo "TINA_TOKEN is missing. Add it as a *repository* Action secret (not an environment secret), then re-run this workflow."
+            exit 1
+          fi
+          npm run build
         env:
           GITHUB_PAGES: 'true'
           TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}

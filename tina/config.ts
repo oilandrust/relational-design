@@ -4,8 +4,11 @@ const branch = process.env.HEAD || process.env.GITHUB_REF_NAME || 'main'
 
 export default defineConfig({
   branch,
-  clientId: process.env.TINA_PUBLIC_CLIENT_ID || 'local',
-  token: process.env.TINA_TOKEN || 'local',
+  clientId:
+    process.env.TINA_PUBLIC_CLIENT_ID ||
+    (process.env.GITHUB_PAGES === 'true' ? undefined : 'local'),
+  token:
+    process.env.TINA_TOKEN || (process.env.GITHUB_PAGES === 'true' ? undefined : 'local'),
   build: {
     outputFolder: 'admin',
     publicFolder: 'public',
