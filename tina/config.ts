@@ -28,7 +28,7 @@ export default defineConfig({
         path: 'Content',
         format: 'md',
         match: {
-          include: '*.md',
+          include: '*',
         },
         ui: {
           allowedActions: {
