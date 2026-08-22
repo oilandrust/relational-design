@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+/* Light-only site: ignore OS dark mode (no `dark:` styles unless `.dark` is set). */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
   --font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
@@ -19,11 +22,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: light only;
   }
 
   body {
     background-color: var(--color-paper);
     color: var(--color-ink);
+    color-scheme: light only;
     font-family: var(--font-sans);
     font-size: 1.0625rem;
     line-height: 1.65;
