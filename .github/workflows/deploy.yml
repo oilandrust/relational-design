@@ -41,6 +41,7 @@ jobs:
             exit 1
           fi
           npm run build
+          cp -R public/admin out/admin
         env:
           GITHUB_PAGES: 'true'
           TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
@@ -49,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: out
 
   deploy:
     needs: build

@@ -1,20 +1,24 @@
 {
   "name": "olivier-web",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "0.1.0",
+  "description": "Relational Design — LeFolio candy template + TinaCMS",
   "scripts": {
-    "dev": "tinacms dev -c \"vite\"",
-    "build": "tinacms build --skip-cloud-checks && tsc -b && vite build",
-    "lint": "oxlint",
-    "preview": "vite preview"
+    "sync": "lefolio sync",
+    "dev": "tinacms dev -c \"lefolio dev\"",
+    "dev:site": "lefolio dev",
+    "build": "tinacms build --skip-cloud-checks && lefolio build",
+    "build:site": "lefolio build",
+    "lint": "oxlint"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.3.3",
+    "@lefolio/engine": "file:../lefolio.md",
     "lucide-react": "^1.32.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "tailwindcss": "^4.3.3",
     "tinacms": "^3.12.0"
   },
   "devDependencies": {
@@ -22,9 +26,15 @@
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.4",
     "oxlint": "^1.75.0",
-    "typescript": "~6.0.2",
-    "vite": "^8.2.0"
+    "typescript": "~6.0.2"
+  },
+  "optionalDependencies": {
+    "@rolldown/binding-darwin-arm64": "1.1.5",
+    "@rolldown/binding-darwin-x64": "1.1.5",
+    "@rolldown/binding-linux-x64-gnu": "1.1.5",
+    "lightningcss-darwin-arm64": "1.33.0",
+    "lightningcss-darwin-x64": "1.33.0",
+    "lightningcss-linux-x64-gnu": "1.33.0"
   }
 }

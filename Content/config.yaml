@@ -1,0 +1,26 @@
+site:
+  title: "Relational Design"
+  description: "I help people build their websites by carefully listening to their needs and picking tools that get the job done."
+  url: "https://oilandrust.github.io/relational-design"
+  basePath: "/relational-design"
+
+template: candy
+
+theme:
+  mode: light
+
+home: Home.md
+
+author:
+  name: Olivier Rouiller
+  links:
+    email: o.rouiller@gmail.com
+
+navigation:
+  - How: "#how-i-work"
+  - Work: "#work"
+  - About: "#about"
+
+cta:
+  label: "Get in touch"
+  href: "mailto:o.rouiller@gmail.com"
