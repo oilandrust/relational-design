@@ -3,13 +3,16 @@
 import { Bot, FileText, Layers, type LucideIcon } from 'lucide-react'
 import type { MarkdownBlockProps } from '@lefolio/engine/template'
 import type { CandyToolIcon } from '../../content/home.d'
+import { useCandyManifest } from '../context'
 import {
+  extractFirstImage,
   firstHeading,
   firstPlainLine,
   parseToolCards,
   prepareCandyMarkdown,
   splitParagraphs,
   stripFirstPlainLine,
+  stripImages,
 } from '../../lib/parse'
 import Reveal from './Reveal'
 
@@ -20,9 +23,12 @@ const TOOL_ICONS: Record<CandyToolIcon, LucideIcon> = {
 }
 
 export default function About({ content }: MarkdownBlockProps) {
+  const manifest = useCandyManifest()
   const prepared = prepareCandyMarkdown(content)
-  const eyebrow = firstPlainLine(prepared)
-  let rest = stripFirstPlainLine(prepared, eyebrow)
+  const portrait = extractFirstImage(prepared)
+  let rest = stripImages(prepared)
+  const eyebrow = firstPlainLine(rest)
+  rest = stripFirstPlainLine(rest, eyebrow)
   const title = firstHeading(rest, 2)
   let bodyRest = title ? rest.replace(/^##\s+.+$/m, '').trim() : rest
   const toolsStart = bodyRest.search(/^###\s+/m)
@@ -40,10 +46,25 @@ export default function About({ content }: MarkdownBlockProps) {
             {title ? <h2 className="candy-section-title">{title}</h2> : null}
           </div>
 
-          <div className="candy-about-copy">
-            {paragraphs.map((paragraph) => (
-              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-            ))}
+          <div className="candy-about-side">
+            {portrait ? (
+              <div className="candy-about-portrait">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={portrait.src}
+                  alt={`Portrait of ${manifest.config.author.name}`}
+                  width={720}
+                  height={400}
+                  className="candy-about-portrait-image"
+                />
+              </div>
+            ) : null}
+
+            <div className="candy-about-copy">
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         </Reveal>
 

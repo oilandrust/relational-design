@@ -34,7 +34,7 @@ We turn the prototype into a real site that you can update yourself while the st
 ::: work
 Some of my work
 
-## From hand-made WordPress sites to AI generated polished design.
+## From hand-made WordPress sites to AI generated polished designs.
 
 ### Re-connected
 My first coaching page
@@ -52,6 +52,8 @@ The same practice, rebuilt with AI
 :::
 
 ::: about
+![[olivier-portrait-about.jpg]]
+
 About me
 
 ## A curious blend between Software Engineering and Relational Attunement.

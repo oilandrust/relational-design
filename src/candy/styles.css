@@ -370,18 +370,10 @@
 
 @media (min-width: 768px) {
   .candy-step-grid {
-    grid-template-columns: 4rem 1fr 1.4fr;
+    grid-template-columns: 1fr 1.4fr;
     align-items: baseline;
     gap: 2rem;
   }
-}
-
-.candy-step-num {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-  color: var(--color-clay);
 }
 
 .candy-step-title {
@@ -488,6 +480,27 @@
     grid-template-columns: 1fr 1.3fr;
     gap: 4rem;
   }
+}
+
+.candy-about-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.candy-about-portrait {
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid var(--color-line);
+  background-color: var(--color-card);
+}
+
+.candy-about-portrait-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 5;
+  object-fit: cover;
+  object-position: center 22%;
 }
 
 .candy-about-copy {
