@@ -5,7 +5,7 @@ import {
   firstHeading,
   firstPlainLine,
   prepareCandyMarkdown,
-  splitByHeading,
+  splitByHeadingSections,
   stripFirstPlainLine,
 } from '../../lib/parse'
 import Reveal from './Reveal'
@@ -16,7 +16,7 @@ export default function HowIWork({ content }: MarkdownBlockProps) {
   let rest = stripFirstPlainLine(prepared, eyebrow)
   const title = firstHeading(rest, 2)
   const stepsBody = title ? rest.replace(/^##\s+.+$/m, '').trim() : rest
-  const steps = splitByHeading(stepsBody, 3)
+  const steps = splitByHeadingSections(stepsBody, 3)
 
   return (
     <section id="how-i-work" className="candy-section candy-section--border">
