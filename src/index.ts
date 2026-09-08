@@ -4,6 +4,7 @@ import Hero from './candy/components/Hero'
 import HowIWork from './candy/components/HowIWork'
 import Work from './candy/components/Work'
 import About from './candy/components/About'
+import Offers from './candy/components/Offers'
 import Contact from './candy/components/Contact'
 import type { TemplateModule } from '@lefolio/engine/template'
 
@@ -18,6 +19,7 @@ export const candyTemplate: TemplateModule = {
     'how-i-work': HowIWork,
     work: Work,
     about: About,
+    offers: Offers,
     contact: Contact,
   },
 }

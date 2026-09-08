@@ -477,15 +477,16 @@
 
 @media (min-width: 768px) {
   .candy-about-intro {
-    grid-template-columns: 1fr 1.3fr;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: start;
     gap: 4rem;
   }
 }
 
-.candy-about-side {
+.candy-about-copy-col {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  min-width: 0;
 }
 
 .candy-about-portrait {
@@ -498,12 +499,13 @@
 .candy-about-portrait-image {
   display: block;
   width: 100%;
-  aspect-ratio: 9 / 5;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center 22%;
 }
 
 .candy-about-copy {
+  margin-top: 1.75rem;
   font-size: 1.125rem;
   line-height: 1.625;
   color: var(--color-ink-soft);
@@ -541,6 +543,31 @@
   width: 1.5rem;
   height: 1.5rem;
   color: var(--color-clay);
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.candy-tool-card:hover .candy-tool-icon {
+  animation: candy-tool-shake 0.55s ease-in-out;
+}
+
+@keyframes candy-tool-shake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-12deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-8deg);
+  }
+  80% {
+    transform: rotate(6deg);
+  }
 }
 
 .candy-tool-title {
@@ -554,6 +581,136 @@
 .candy-tool-body {
   margin: 0.5rem 0 0;
   color: var(--color-ink-soft);
+}
+
+/* —— Offers —— */
+.candy-offers-lead {
+  margin: 1.5rem 0 0;
+  max-width: 36rem;
+  font-size: 1.125rem;
+  line-height: 1.625;
+  color: var(--color-ink-soft);
+  text-wrap: pretty;
+}
+
+.candy-offers-grid {
+  margin-top: 4rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .candy-offers-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+}
+
+.candy-offer-slot {
+  display: flex;
+  height: 100%;
+}
+
+.candy-offer-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.25rem;
+  border: 1px solid var(--color-line);
+  background-color: var(--color-paper);
+  padding: 1.75rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.candy-offer-card:hover {
+  transform: scale(1.03);
+  border-color: color-mix(in oklch, var(--color-clay) 40%, var(--color-line));
+  box-shadow: 0 18px 40px -28px oklch(0.26 0.022 240 / 0.45);
+}
+
+@media (min-width: 900px) {
+  .candy-offer-card--featured {
+    transform: scale(1.06);
+    border-color: color-mix(in oklch, var(--color-clay) 55%, var(--color-line));
+    box-shadow: 0 22px 48px -30px oklch(0.26 0.022 240 / 0.5);
+  }
+
+  .candy-offer-card--featured:hover {
+    transform: scale(1.09);
+  }
+}
+
+.candy-offer-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.candy-offer-body {
+  margin: 0.75rem 0 0;
+  color: var(--color-ink-soft);
+  text-wrap: pretty;
+}
+
+.candy-offer-features {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.candy-offer-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+}
+
+.candy-offer-check {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  color: var(--color-clay);
+}
+
+.candy-offer-price {
+  margin: auto 0 0;
+  padding-top: 1.75rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-family: var(--font-display);
+}
+
+.candy-offer-price-original {
+  font-size: 1.125rem;
+  color: var(--color-ink-soft);
+  opacity: 0.7;
+}
+
+.candy-offer-price-current {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.candy-offer-cta {
+  margin-top: 1.25rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.candy-offer-card:hover .candy-offer-cta {
+  transform: none;
 }
 
 /* —— Contact —— */
@@ -684,11 +841,24 @@
   .candy-work-image,
   .candy-work-arrow,
   .candy-btn,
-  .candy-nav-cta {
+  .candy-nav-cta,
+  .candy-offer-card {
     transition: none;
   }
 
   .candy-work-card:hover .candy-work-image {
     transform: none;
+  }
+
+  .candy-offer-card:hover {
+    transform: none;
+  }
+
+  .candy-offer-card--featured:hover {
+    transform: scale(1.06);
+  }
+
+  .candy-tool-card:hover .candy-tool-icon {
+    animation: none;
   }
 }

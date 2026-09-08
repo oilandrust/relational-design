@@ -10,6 +10,7 @@ import {
   escapeRegExp,
   extractFirstImage,
   extractLinks as extractLinksBase,
+  extractListItems,
   firstHeading,
   firstPlainLine,
   paragraphs,
@@ -18,6 +19,7 @@ import {
   stripHeadings,
   stripImages,
   stripLinks,
+  stripList,
   type MdLink as EngineMdLink,
 } from '@lefolio/engine/parse'
 
@@ -25,15 +27,19 @@ export type { MdImage } from '@lefolio/engine/parse'
 export {
   escapeRegExp,
   extractFirstImage,
+  extractListItems,
   firstHeading,
   firstPlainLine,
   paragraphs,
+  splitByHeading,
   splitByHeadingSections,
   splitParagraphs,
   stripFirstPlainLine,
+  stripHeading,
   stripHeadings,
   stripImages,
   stripLinks,
+  stripList,
 } from '@lefolio/engine/parse'
 
 export interface MdLink {
@@ -131,4 +137,47 @@ export function parseToolCards(markdown: string): ParsedToolCard[] {
     icon: parseToolIcon(section.body),
     body: stripIconShortcodes(stripHeadings(section.body)),
   }))
+}
+
+export interface ParsedOfferPrice {
+  /** Crossed-out price when written as `~~500€~~ 300€`. */
+  original: string | null
+  current: string
+}
+
+export interface ParsedOffer {
+  title: string
+  body: string[]
+  features: string[]
+  price: ParsedOfferPrice | null
+  cta: MdLink | null
+}
+
+function parseOfferPrice(line: string | null): ParsedOfferPrice | null {
+  if (!line) return null
+  const discounted = line.match(/~~\s*(.+?)\s*~~\s*(.*)$/)
+  if (discounted) {
+    const current = discounted[2].trim()
+    return { original: discounted[1], current: current || discounted[1] }
+  }
+  return { original: null, current: line.trim() }
+}
+
+/**
+ * `### Offer title` cards, each with optional intro lines, a `-` feature list,
+ * a `#### price` (or call-to-action label) and an optional link.
+ */
+export function parseOffers(markdown: string): ParsedOffer[] {
+  return splitByHeadingSections(prepareCandyMarkdown(markdown), 3).map((section) => {
+    const priceLine = firstHeading(section.body, 4)
+    const cta = extractLinks(section.body)[0] ?? null
+    const rest = stripLinks(stripHeadings(section.body))
+    return {
+      title: section.title,
+      body: paragraphs(stripList(rest)),
+      features: extractListItems(rest),
+      price: parseOfferPrice(priceLine),
+      cta,
+    }
+  })
 }

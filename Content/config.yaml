@@ -1,5 +1,5 @@
 site:
-  title: "Relational Design"
+  title: "Marketing Design"
   description: "I help people build their websites by carefully listening to their needs and picking tools that get the job done."
   url: "https://oilandrust.github.io/relational-design"
   basePath: "/relational-design"
@@ -20,6 +20,7 @@ navigation:
   - How: "#how-i-work"
   - Work: "#work"
   - About: "#about"
+  - Offering
 
 cta:
   label: "Get in touch"

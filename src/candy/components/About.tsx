@@ -41,24 +41,9 @@ export default function About({ content }: MarkdownBlockProps) {
     <section id="about" className="candy-section candy-section--border">
       <div className="candy-container">
         <Reveal className="candy-about-intro">
-          <div>
+          <div className="candy-about-copy-col">
             {eyebrow ? <p className="candy-eyebrow">{eyebrow}</p> : null}
             {title ? <h2 className="candy-section-title">{title}</h2> : null}
-          </div>
-
-          <div className="candy-about-side">
-            {portrait ? (
-              <div className="candy-about-portrait">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={portrait.src}
-                  alt={`Portrait of ${manifest.config.author.name}`}
-                  width={720}
-                  height={400}
-                  className="candy-about-portrait-image"
-                />
-              </div>
-            ) : null}
 
             <div className="candy-about-copy">
               {paragraphs.map((paragraph) => (
@@ -66,6 +51,19 @@ export default function About({ content }: MarkdownBlockProps) {
               ))}
             </div>
           </div>
+
+          {portrait ? (
+            <div className="candy-about-portrait">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={portrait.src}
+                alt={`Portrait of ${manifest.config.author.name}`}
+                width={720}
+                height={900}
+                className="candy-about-portrait-image"
+              />
+            </div>
+          ) : null}
         </Reveal>
 
         {tools.length > 0 ? (

@@ -1,15 +1,14 @@
 ---
-title: Relational Design
+title: Marketing Design
 ---
 
 ::: hero
-Relational Web Design
-
+Marketing Design
 # Let's build your website together
 
 Hey, I'm Olivier. I help people build their websites by carefully listening to their needs and picking tools that get the job done.
 
-[Start a conversation](mailto:o.rouiller@gmail.com)
+[Start a conversation](mailto:o.rouiller@gmail.com?subject=I'd%20like%20to%20talk%20about%20building%20a%20Website)
 [See how we can work together](#how-i-work){secondary}
 :::
 
@@ -34,31 +33,31 @@ We turn the prototype into a real site that you can update yourself while the st
 ::: work
 Some of my work
 
-## From hand-made WordPress sites to AI generated polished designs.
+## From handmade WordPress sites to AI-generated polished designs.
 
 ### Re-connected
-My first coaching page
+My first coaching page built with **WordPress**
+![[reconnected.png]]
 
-![[work-re-connected.webp]]
 
 [www.re-connected.fr](https://www.re-connected.fr)
 
-### Reconnected, reworked
-The same practice, rebuilt with AI
+### lefolio.md
+A Web Design tool that I'm building
 
-![[work-reconnected-coral.webp]]
+![[lefolio.png]]
 
-[reconnected-coral.vercel.app](https://reconnected-coral.vercel.app/)
+[lefolio.md](https://lefolio.md)
 :::
 
 ::: about
-![[olivier-portrait-about.jpg]]
+![[about-portrait.jpg]]
 
 About me
 
-## A curious blend between Software Engineering and Relational Attunement.
+## A blend of Software Engineering, Marketing and Coaching Skills.
 
-I was a software engineer for 10 years, working in video games and other tech-heavy fields. In the past 10 years, I have been interested in entrepreneurship, relational practices, coaching, and therapy. I trained in somatic therapy, practiced many forms of mindfulness, and developed a keen ability for attunement. Along the way, I kept exploring how websites get built.
+I was a software engineer for 10 years, working in video games and other tech-heavy fields. In the past 10 years, I have been interested in entrepreneurship, relational practices, coaching, and therapy. I built a coaching business, trained in somatic therapy, and developed a keen ability for listening. Along the way, I kept exploring how websites get built.
 
 I'm happy to sit with you in the language of your practice and be your ally in working with technology.
 
@@ -75,10 +74,41 @@ When you need to edit everything yourself, in a familiar admin.
 When the site should be fast, cheap to host, and simple to keep.
 :::
 
+::: offers
+Choose the service that you need
+### Let's figure out what I need together
+Not sure what you need yet?
+Let's have a quick call about how I might help you, be it:
+- Update on an existing site
+- A new marketing strategy
+- Advice about what tools to choose
+
+[Let's talk](mailto:o.rouiller@gmail.com?subject=I'd%20like%20to%20talk%20about%20building%20a%20Website)
+### Let's make a cool website
+- Define your business needs
+- Craft your message
+- Build a prototype with AI
+- Iterate on the design and copy
+- Tool training
+- SEO Optimisation
+- 1-month follow-up
+#### ~~500€~~ 300€
+[Book a free call](mailto:o.rouiller@gmail.com?subject=I'd%20like%20to%20talk%20about%20building%20a%20Website)
+### I want full control
+In case you want specific tools:
+- All the cool stuff in the simple site package
+- Hand-crafted WordPress template
+- Squarespace
+- More pages
+- Listings, etc.
+- 
+[Let's talk](mailto:o.rouiller@gmail.com?subject=I'd%20like%20to%20talk%20about%20building%20a%20Website)
+:::
+
 ::: contact
 Let's work together
 
 ## I'd love to learn more about you and your projects!
 
-I'm looking for collaborations. Tell me about your vision for your website and your business needs, and let's work out the right tools for you.
+I'm looking for collaborations. Tell me about your vision for your website and your business needs, and we'll find the right tools for you.
 :::
