@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useId, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Menu, X } from 'lucide-react'
 import { slugify, type ContentManifest } from '@lefolio/engine/template'
 import { bricolage } from '../../fonts'
 import { candyEmail } from '../context'
@@ -66,14 +67,16 @@ function NavLink({
   item,
   onHome,
   className,
+  onNavigate,
 }: {
   item: CandyNavItem
   onHome: boolean
   className: string
+  onNavigate?: () => void
 }) {
   if (item.kind === 'external') {
     return (
-      <a href={item.href} className={className}>
+      <a href={item.href} className={className} onClick={onNavigate}>
         {item.label}
       </a>
     )
@@ -82,7 +85,7 @@ function NavLink({
   if (item.kind === 'anchor') {
     if (!onHome) {
       return (
-        <Link href={`/${item.href}`} className={className}>
+        <Link href={`/${item.href}`} className={className} onClick={onNavigate}>
           {item.label}
         </Link>
       )
@@ -94,6 +97,7 @@ function NavLink({
         onClick={(e) => {
           e.preventDefault()
           scrollToHash(item.href)
+          onNavigate?.()
         }}
       >
         {item.label}
@@ -102,7 +106,7 @@ function NavLink({
   }
 
   return (
-    <Link href={item.href} className={className}>
+    <Link href={item.href} className={className} onClick={onNavigate}>
       {item.label}
     </Link>
   )
@@ -110,6 +114,8 @@ function NavLink({
 
 export default function Navbar({ manifest }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const menuId = useId()
   const pathname = usePathname()
   const onHome = (pathname ?? '/').replace(/\/$/, '') === ''
   const siteName = manifest.config.site.title
@@ -117,6 +123,7 @@ export default function Navbar({ manifest }: NavbarProps) {
   const ctaHref = cta?.href ?? `mailto:${candyEmail(manifest)}`
   const ctaLabel = cta?.label ?? 'Get in touch'
   const items = navItems(manifest)
+  const closeMenu = () => setMenuOpen(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -125,8 +132,23 @@ export default function Navbar({ manifest }: NavbarProps) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [menuOpen])
+
   return (
-    <header className={`candy-header${scrolled ? ' is-scrolled' : ''}`}>
+    <header
+      className={`candy-header${scrolled || menuOpen ? ' is-scrolled' : ''}${menuOpen ? ' is-open' : ''}`}
+    >
       <nav className="candy-container candy-header-inner" aria-label="Main">
         {onHome ? (
           <a
@@ -135,30 +157,45 @@ export default function Navbar({ manifest }: NavbarProps) {
             onClick={(e) => {
               e.preventDefault()
               scrollToHash('#top')
+              closeMenu()
             }}
           >
             {siteName}
           </a>
         ) : (
-          <Link href="/" className={`candy-brand ${bricolage.className}`}>
+          <Link href="/" className={`candy-brand ${bricolage.className}`} onClick={closeMenu}>
             {siteName}
           </Link>
         )}
 
-        <div className="candy-nav-links">
-          {items.map((item) => (
-            <NavLink
-              key={`${item.label}-${item.href}`}
-              item={item}
-              onHome={onHome}
-              className="candy-nav-link"
-            />
-          ))}
-        </div>
+        <button
+          type="button"
+          className="candy-nav-toggle"
+          aria-expanded={menuOpen}
+          aria-controls={menuId}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+        </button>
 
-        <a href={ctaHref} className="candy-nav-cta">
-          {ctaLabel}
-        </a>
+        <div id={menuId} className={`candy-nav-panel${menuOpen ? ' is-open' : ''}`}>
+          <div className="candy-nav-links">
+            {items.map((item) => (
+              <NavLink
+                key={`${item.label}-${item.href}`}
+                item={item}
+                onHome={onHome}
+                className="candy-nav-link"
+                onNavigate={closeMenu}
+              />
+            ))}
+          </div>
+
+          <a href={ctaHref} className="candy-nav-cta" onClick={closeMenu}>
+            {ctaLabel}
+          </a>
+        </div>
       </nav>
     </header>
   )
