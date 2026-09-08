@@ -55,27 +55,27 @@ A Web Design tool that I'm building
 
 About me
 
-## A blend of Software Engineering, Marketing and Coaching Skills.
+## A blend of Engineering, Marketing and Coaching.
 
-I was a software engineer for 10 years, working in video games and other tech-heavy fields. In the past 10 years, I have been interested in entrepreneurship, relational practices, coaching, and therapy. I built a coaching business, trained in somatic therapy, and developed a keen ability for listening. Along the way, I kept exploring how websites get built.
+I was a software engineer for 10 years, working in video games and other tech-heavy fields. In the past 10 years, I have been interested in entrepreneurship, marketing, coaching, and therapy. I built a coaching business, trained in somatic therapy, and developed a keen ability for listening. Along the way, I kept exploring how websites get built.
 
-I'm happy to sit with you in the language of your practice and be your ally in working with technology.
+I'm happy to sit with you, listen to your goals, and be your ally working with technology.
 
 ### AI-assisted design
 :icon-bot:
-For moving fast through mock-ups until the look is right.
+AI has the technique; let's focus on design and creativity. 
 
 ### WordPress and other CMSs
 :icon-layers:
-When you need to edit everything yourself, in a familiar admin.
+With a CMS, your site is easier to edit and extend.
 
 ### Static site generators
 :icon-file-text:
-When the site should be fast, cheap to host, and simple to keep.
+Static sites are light and let you host for free while still allowing editing.
 :::
 
 ::: offers
-Choose the service that you need
+Choose the service you need
 ### Let's figure out what I need together
 Not sure what you need yet?
 Let's have a quick call about how I might help you, be it:
@@ -93,6 +93,7 @@ Let's have a quick call about how I might help you, be it:
 - SEO Optimisation
 - 1-month follow-up
 #### ~~500€~~ 300€
+[Learn more](https://oilandrust.github.io/relational-design/offering)
 [Book a free call](mailto:o.rouiller@gmail.com?subject=I'd%20like%20to%20talk%20about%20building%20a%20Website)
 ### I want full control
 In case you want specific tools:
@@ -101,7 +102,6 @@ In case you want specific tools:
 - Squarespace
 - More pages
 - Listings, etc.
-- 
 [Let's talk](mailto:o.rouiller@gmail.com?subject=I'd%20like%20to%20talk%20about%20building%20a%20Website)
 :::
 

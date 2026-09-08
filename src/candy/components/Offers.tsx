@@ -69,13 +69,23 @@ export default function Offers({ content }: MarkdownBlockProps) {
                   </ul>
                 ) : null}
 
-                {offer.price ? (
-                  <p className="candy-offer-price">
-                    {offer.price.original ? (
-                      <s className="candy-offer-price-original">{offer.price.original}</s>
+                {offer.price || offer.more ? (
+                  <div className="candy-offer-price-row">
+                    {offer.price ? (
+                      <p className="candy-offer-price">
+                        {offer.price.original ? (
+                          <s className="candy-offer-price-original">{offer.price.original}</s>
+                        ) : null}
+                        <span className="candy-offer-price-current">{offer.price.current}</span>
+                      </p>
                     ) : null}
-                    <span className="candy-offer-price-current">{offer.price.current}</span>
-                  </p>
+
+                    {offer.more ? (
+                      <a href={offer.more.href} className="candy-offer-more">
+                        {offer.more.text}
+                      </a>
+                    ) : null}
+                  </div>
                 ) : null}
 
                 {offer.cta ? (
